@@ -1,0 +1,6 @@
+{
+  "name": "Artemis9",
+  "description": "A text game for Telegram",
+  "repository": "https://github.com/Epowerj/Artemis9",
+  "keywords": ["python", "telegram", "chat bot" ]
+}
