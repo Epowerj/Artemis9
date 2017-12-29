@@ -96,7 +96,7 @@ def error(bot, update, error):
 
 
 def parse(bot, update):
-    #print(str(update.channel_post.chat_id))
+    # print(str(update.channel_post.chat_id))
     print("file: " + str(update.message.document.file_id))
     print("Message from " + update.message.from_user.first_name + "(" + str(update.message.from_user.id) + "): " +
           update.message.text + " (" + str(update.message.message_id) + ")")
