@@ -12,4 +12,4 @@ class Base:
 
     def get_status(self):
         return "Base " + self.name + "\n" \
-                                     "Owner " + self.ownerid + "\n"
+                                     "Owner " + str(self.ownerid) + "\n"
