@@ -75,7 +75,7 @@ def setinfo(bot, update):
 def start(bot, update):
     userid = update.message.from_user.id
     if userid not in user_bases:
-        user_bases[userid] = Base(userid, "Artemis9-"+userid)
+        user_bases[userid] = Base(userid, "Artemis9-"+str(userid))
     bot.sendMessage(update.message.chat_id, text="Hey!")
 
 
