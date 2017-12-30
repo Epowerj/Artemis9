@@ -106,6 +106,12 @@ def parse(bot, update):
     print("Message from " + update.message.from_user.first_name + "(" + str(update.message.from_user.id) + "): " +
           update.message.text + " (" + str(update.message.message_id) + ")")
 
+
+def status(bot, update):
+    base = user_bases[update.message.from_user.id]
+    bot.sendMessage(update.message.chat_id, text=base.get_status())
+
+
 def main():
     global char_info
 
@@ -129,6 +135,8 @@ def main():
     dp.add_handler(CommandHandler("chatinfo", chatinfo))
     dp.add_handler(CommandHandler("info", info))
     dp.add_handler(CommandHandler("setinfo", setinfo))
+
+    dp.add_handler(CommandHandler("status", status))
 
     dp.add_handler(MessageHandler(Filters.text, parse))
 
