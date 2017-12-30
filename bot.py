@@ -3,6 +3,7 @@ from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, Callb
 from pymongo import MongoClient
 import os, logging, datetime, random, time
 from key import apikey
+from Base import Base
 
 db = 0
 char_info = {}
@@ -18,6 +19,7 @@ else:
 
 logger = logging.getLogger(__name__)
 
+user_bases = dict()
 
 def load_info():
     global char_info
@@ -71,6 +73,9 @@ def setinfo(bot, update):
 
 
 def start(bot, update):
+    userid = update.message.from_user.id
+    if userid not in user_bases:
+        user_bases[userid] = Base(userid)
     bot.sendMessage(update.message.chat_id, text="Hey!")
 
 
@@ -100,7 +105,6 @@ def parse(bot, update):
     print("file: " + str(update.message.document.file_id))
     print("Message from " + update.message.from_user.first_name + "(" + str(update.message.from_user.id) + "): " +
           update.message.text + " (" + str(update.message.message_id) + ")")
-
 
 def main():
     global char_info
